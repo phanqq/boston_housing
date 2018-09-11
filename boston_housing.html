@@ -12119,6 +12119,8 @@ Standard deviation of prices: $165171.131544
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> Yes. 92.3% of the variance in Y is predictable from X. This is a good model to use for prediction for this dataset.</p>
+<p>At 0%, the predicitons be the same as random, whereas at 100% the prediction would be the same as the true value (perfect). What this mean is that at 100%, any prediction will be exactly on point, and at 0% any prediction may as well be a random number generator with no prior knowledge of the data at all.</p>
+<p>Therefore with 92.3% we have a really good model where the correlation can be deem very good, or you can say that this is as very close to perfect.</p>
 
 </div>
 </div>
@@ -12397,6 +12399,8 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>Grid search technique will allow a visualization of scores between different parameters. The matrix will show which parameters' value selection has the highest score, and from that we can use those values for each respective parameter.</p>
+<p>The inputs to gridsearch are the hyper-parameters, along with its range of values that we can to test upon. Then gridsearch will score each combinations of hyper-parameter against the cross-validation set, place it into the grid, and picks the best possible (usually the highest) score. This is the ouput that gridsearch gives.</p>
+<p>The goal here is to find the best value for various hyper-parameters combination using some scoring method.</p>
 
 </div>
 </div>
@@ -12421,7 +12425,9 @@ Think about the pros and cons of adding more training points based on if the tra
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> K-fold cross validation is splitting the data into k number of subsections, where one of the subsection will be used for testing and the others k-1 subsections will be used for training. We should also randomize the data before splitting the main section, which will allow for bettwe training with "different" subsets each time. Subsections will be used to train, cross validate, and test respectively for each parameter when doing grid search technique. In the end, we average results to get the best values for each parameters.</p>
+<p><strong>Answer: </strong> K-fold cross validation is splitting the training data set (orginal data is has already been split for training only, not the whole dataset) into k number of subsets, and then we use k-1 fold to train while we use the other 1 for cross-validation. This process is repeated k times, and each time we cross-validate with a different set. The score from each cross-validation is then averaged, and the highest score from each hyper-parameter values combination (using gridsearch) is selected.</p>
+<p>The selected values for each hyper-parameters are then used to validate the test set (already set aside/split from the orginal data).</p>
+<p>We do not want to use all our data for training because we may potentially be overfitting. This is the cardinal rule that we must not break!</p>
 
 </div>
 </div>
